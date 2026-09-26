@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord échecs</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♞</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="top">
+    <div>
+      <p class="kicker">Tableau de bord Chess.com</p>
+      <h1 id="player">Chargement…</h1>
+      <p class="sub" id="updated"></p>
+    </div>
+    <div class="filters">
+      <div class="chips" role="group" aria-label="Cadence" id="cadences">
+        <button data-c="tout" aria-pressed="true">Tout</button>
+        <button data-c="blitz" aria-pressed="false">Blitz</button>
+        <button data-c="rapid" aria-pressed="false">Rapide</button>
+        <button data-c="bullet" aria-pressed="false">Bullet</button>
+        <button data-c="daily" aria-pressed="false">Daily</button>
+      </div>
+      <label class="period">Période
+        <select id="period">
+          <option value="0">Tout l'historique</option>
+          <option value="365">12 derniers mois</option>
+          <option value="90">3 derniers mois</option>
+          <option value="30">30 derniers jours</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis" aria-live="polite"></section>
+
+  <section class="block">
+    <h2><span class="mv">1.</span> Progression</h2>
+    <p class="hint">Ton Elo à la fin de chaque journée de jeu.</p>
+    <div class="chart tall"><canvas id="eloChart"></canvas></div>
+  </section>
+
+  <section class="block">
+    <h2><span class="mv">2.</span> Ouvertures</h2>
+    <p class="hint">Familles d'ouvertures jouées au moins 5 fois, avec le score (victoire = 1, nulle = ½). Clique sur une ligne pour voir les variantes.</p>
+    <div class="two">
+      <div><h3>Avec les blancs</h3><div id="opW"></div></div>
+      <div><h3>Avec les noirs</h3><div id="opB"></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="mv">3.</span> Quand joues-tu le mieux ?</h2>
+    <p class="hint">Score par jour et par tranche horaire (heure locale). Cases vides : moins de 5 parties.</p>
+    <div class="scroll"><div class="heat" id="heat"></div></div>
+  </section>
+
+  <section class="block">
+    <h2><span class="mv">4.</span> Face à plus fort, face à plus faible</h2>
+    <p class="hint">Ton score réel selon l'écart d'Elo avec l'adversaire, comparé au score attendu par la formule Elo. Au-dessus de la ligne, tu fais mieux que prévu.</p>
+    <div class="chart"><canvas id="gapChart"></canvas></div>
+  </section>
+
+  <div class="two">
+    <section class="block">
+      <h2><span class="mv">5.</span> Comment finissent tes parties</h2>
+      <div id="endings"></div>
+    </section>
+    <section class="block">
+      <h2><span class="mv">6.</span> Sessions et tilt</h2>
+      <p class="hint">Une session s'arrête après 45 minutes sans jouer.</p>
+      <div id="tilt"></div>
+      <div class="chart small"><canvas id="sessionChart"></canvas></div>
+    </section>
+  </div>
+
+  <section class="block" id="accBlock">
+    <h2><span class="mv">7.</span> Précision</h2>
+    <p class="hint">Précision moyenne par mois, sur les parties que Chess.com a analysées.</p>
+    <div class="chart"><canvas id="accChart"></canvas></div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="stats.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

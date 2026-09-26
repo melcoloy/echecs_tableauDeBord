@@ -1,0 +1,2 @@
+data/archives/*.tmp
+__pycache__/
