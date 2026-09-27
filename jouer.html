@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jouer contre le moteur</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♞</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="trainer.css">
+</head>
+<body>
+<main>
+  <nav class="nav"><a href="index.html">Tableau de bord</a><a href="entraineur.html">Entraîneur d'ouvertures</a><a href="jouer.html" aria-current="page">Jouer contre le moteur</a></nav>
+  <header class="top">
+    <div>
+      <p class="kicker">Moteur maison</p>
+      <h1>Jouer contre le moteur</h1>
+      <p class="sub">Un moteur écrit de zéro : alpha-bêta, quiescence et table de transposition.</p>
+    </div>
+    <div class="filters">
+      <label class="period">Couleur
+        <select id="color"><option value="w">Blancs</option><option value="b">Noirs</option></select>
+      </label>
+      <label class="period">Niveau
+        <select id="level">
+          <option value="0">Débutant (1 coup d'avance)</option>
+          <option value="1">Facile (2 coups)</option>
+          <option value="2" selected>Moyen (4 coups)</option>
+          <option value="3">Fort (1 s par coup)</option>
+          <option value="4">Maximum (3 s par coup)</option>
+        </select>
+      </label>
+      <button class="btn" id="newGame">Nouvelle partie</button>
+    </div>
+  </header>
+
+  <div class="trainer">
+    <div class="boardwrap">
+      <div class="evalbar" aria-hidden="true"><div class="evalfill" id="evalFill"></div></div>
+      <div class="board" id="board" aria-label="Échiquier"></div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <div class="actions"><button class="btn ghost" id="undo">Annuler mon dernier coup</button></div>
+    </div>
+    <aside class="panel">
+      <section class="block">
+        <h2><span class="mv">1.</span> Coups joués</h2>
+        <ol class="moves" id="moves"></ol>
+      </section>
+      <section class="block">
+        <h2><span class="mv">2.</span> Ce que pense le moteur</h2>
+        <div id="engineInfo"><p class="hint">Les infos de calcul s'affichent quand le moteur réfléchit.</p></div>
+      </section>
+    </aside>
+  </div>
+  <p class="hint credits">Pièces « cburnett » de Colin M. L. Burnett, licence CC BY-SA 3.0.</p>
+</main>
+<script src="vendor/chess.js"></script>
+<script src="jouer.js"></script>
+</body>
+</html>

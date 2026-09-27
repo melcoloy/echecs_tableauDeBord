@@ -49,3 +49,11 @@
 .btn.ghost{background:transparent; color:var(--ink)}
 .btn:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 .credits{margin-top:1.5rem; font-size:.8rem}
+
+/* barre d'évaluation (jouer.html) */
+.evalbar{height:10px; max-width:560px; background:#2b3140; border-radius:5px; overflow:hidden; margin-bottom:.6rem}
+.evalfill{height:100%; width:50%; background:#F4F4F1; transition:width .4s}
+.engstats{display:grid; grid-template-columns:repeat(2,1fr); gap:.6rem 1rem}
+.engstats .v{font:500 1.3rem "IBM Plex Mono",ui-monospace,monospace}
+.engstats .l{font-size:.82rem; color:var(--muted)}
+.pv{margin-top:.8rem; font:500 .9rem "IBM Plex Mono",ui-monospace,monospace; line-height:1.7}
