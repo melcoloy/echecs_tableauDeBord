@@ -1,0 +1,6 @@
+[
+  { "id": "vant-kruijs", "nom": "Van't Kruijs (1. e3)", "couleur": "blancs", "debut": ["e2e3"] },
+  { "id": "trois-cavaliers", "nom": "Partie des trois cavaliers", "couleur": "blancs", "debut": ["e2e4", "e7e5", "g1f3", "b8c6", "b1c3"] },
+  { "id": "francaise", "nom": "Défense française", "couleur": "noirs", "debut": ["e2e4", "e7e6"] },
+  { "id": "contre-d4", "nom": "Contre 1. d4 : 1… d5", "couleur": "noirs", "debut": ["d2d4", "d7d5"] }
+]

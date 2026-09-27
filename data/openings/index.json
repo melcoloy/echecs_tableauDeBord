@@ -1,0 +1,30 @@
+[
+ {
+  "id": "vant-kruijs",
+  "nom": "Van't Kruijs (1. e3)",
+  "couleur": "blancs",
+  "eco": "A00",
+  "lignes": 16
+ },
+ {
+  "id": "trois-cavaliers",
+  "nom": "Partie des trois cavaliers",
+  "couleur": "blancs",
+  "eco": "C46",
+  "lignes": 23
+ },
+ {
+  "id": "francaise",
+  "nom": "Défense française",
+  "couleur": "noirs",
+  "eco": "C00",
+  "lignes": 16
+ },
+ {
+  "id": "contre-d4",
+  "nom": "Contre 1. d4 : 1… d5",
+  "couleur": "noirs",
+  "eco": "D00",
+  "lignes": 20
+ }
+]
